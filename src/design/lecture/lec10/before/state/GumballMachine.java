@@ -1,4 +1,4 @@
-	package design.lecture.lec10.before.state;
+package design.lecture.lec10.before.state;
 
 import design.lecture.lec10.after.state.HasQuarterState;
 import design.lecture.lec10.after.state.NoQuarterState;
@@ -17,8 +17,20 @@ import design.lecture.lec10.after.state.WinnerState;
 		State winnerState; 				//공짜 알맹이 당첨 기능 추가 
 		State state = soldOutState; 	// 현재 상태를 관리하기 위한 State 객체 
 		int count = 0; 					//기계에 들어있는 알맹이의 개수를 저장하기 위한 인스턴스 변수 
-		
+		String location;
 	
+		public GumballMachine(String location, int numberGumballs) {
+			soldOutState = new SoldOutState(this);
+			noQuarterState = new NoQuarterState(this);
+			hasQuarterState = new HasQuarterState(this);
+			soldState = new SoldState(this);
+			winnerState = new WinnerState(this);
+			this.count = numberGumballs;
+			if(numberGumballs > 0){
+				state = noQuarterState;
+			}
+			this.location = location;
+		}
 		
 		public GumballMachine(int numberGumballs) {
 			soldOutState = new SoldOutState(this);
@@ -88,5 +100,10 @@ import design.lecture.lec10.after.state.WinnerState;
 
 		public State getState() {
 			return state;
+		}
+
+		public String getLocation() {
+
+			return location;
 		}
 	}

@@ -5,7 +5,7 @@ import java.util.Random;
 import design.lecture.lec10.before.state.GumballMachine;
 
 public class HasQuarterState implements State {
-	GumballMachine gumballMachine;
+	transient GumballMachine gumballMachine;
 	Random randomWinner = new Random(System.currentTimeMillis()); //랜덤 10%확률을 위한 난수 발생기 추가 
 	public HasQuarterState(GumballMachine gumballMachine) {
 		this.gumballMachine = gumballMachine;

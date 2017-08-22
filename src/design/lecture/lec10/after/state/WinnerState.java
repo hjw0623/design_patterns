@@ -3,7 +3,7 @@ package design.lecture.lec10.after.state;
 import design.lecture.lec10.before.state.GumballMachine;
 
 public class WinnerState implements State {
-	GumballMachine gumballMachine;
+	transient GumballMachine gumballMachine;
 
 	public WinnerState(GumballMachine gumballMachine) {
 		super();
